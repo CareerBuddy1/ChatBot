@@ -1,0 +1,384 @@
+/* General styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color: #333;
+    scroll-behavior: smooth; /* Smooth scrolling */
+}
+
+/* Importing Google Font for handwriting style */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
+/* Navigation bar styles */
+nav {
+    background-color: black; /* Set background color to black */
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: flex-end; /* Align items to the sides */
+    align-items: center;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 50px; /* Adjust the height of the logo */
+    margin-right: 10px; /* Space between logo and site name */
+}
+
+.site-name {
+    font-family: 'Great Vibes', cursive; /* Unique handwriting style */
+    font-size: 2em;
+    color: white;
+}
+
+.menu {
+    display: flex;
+    gap: 20px;
+}
+
+nav .menu a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 1em;
+}
+
+nav .menu a:hover {
+    text-decoration: underline;
+}
+/* Menu toggle button (hamburger icon) styles */
+.menu-toggle {
+    display: none; /* Hide menu toggle button by default */
+}
+
+/* Mobile menu styles */
+.menu.active {
+    display: flex; /* Show menu when active */
+    flex-direction: column;
+    gap: 10px;
+    background-color: black; /* Background color for mobile menu */
+    position: absolute;
+    top: 60px; /* Position below the navigation bar */
+    right: 0;
+    width: 100%;
+    padding: 10px;
+
+}
+
+/* Mobile view menu icon (hamburger) */
+.menu-toggle {
+    display: flex; /* Show menu toggle button on mobile */
+    cursor: pointer;
+}
+
+/* Mobile menu button styles */
+.menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 5px 0;
+}
+
+
+/* Home section styles */
+.home {
+    background-image: url('pic-1.jpeg'); /* Update with the actual path */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: flex-end; /* Align content to the right */
+    align-items: center; /* Center the text vertically */
+    padding: 20px;
+    color: white;
+    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.5);
+}
+
+.home .home-text {
+    max-width: 500px; /* Set a maximum width for the text block */
+    text-align: right; /* Align text to the right */
+    margin-right: 10%; /* Add margin to keep the text away from the edge */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.home h1 {
+    font-family: 'Great Vibes', cursive; /* Unique handwriting style */
+    font-size: 3.5em;
+    margin: 0;
+}
+
+.home p {
+    font-size: 1.5em;
+    margin-top: 20px;
+}
+
+/* About section styles */
+.about-section {
+    padding: 50px 20px;
+    background-color: #000; /* Set background color to black */
+    color: white; /* Set text color to white */
+}
+
+.about-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px; /* Space between image and text */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-image {
+    max-width: 300px; /* Adjust width as needed */
+    width: 100%;
+    height: auto;
+    display: block; /* Maintain aspect ratio */
+}
+
+.about-text {
+    flex: 1;
+    text-align: left;
+}
+
+.about-section h2 {
+    font-family: 'Great Vibes', cursive; /* Unique handwriting style */
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.about-section p {
+    font-size: 1.2em;
+    line-height: 1.6em;
+    margin-bottom: 20px;
+}
+
+/* Chatbot section styles */
+.chatbot-section {
+    background-image: url('pic-3.jpeg'); /* Update with the actual path */
+    background-size: cover;
+    background-position: center;
+    padding: 50px 20px;
+    color: white;
+    text-align: center;
+    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.5);
+    position: relative; /* Make the section relative for positioning the iframe */
+    display: flex;
+    flex-direction: column;
+        align-items: center; /* Center the text horizontally */
+    justify-content: flex-start; /* Align content at the top */
+}
+
+/* Chatbot section heading */
+.chatbot-section h2 {
+    font-family: 'Great Vibes', cursive; /* Unique handwriting style */
+    font-size: 2.5em; /* Consistent heading size */
+    margin-bottom: 20px;
+    margin-top: 0;
+}
+
+.chatbot-section p {
+    font-size: 1.3em; /* Increase font size */
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6em;
+}
+
+/* Chatbot iframe styles */
+#dialogflow-chatbot {
+    width: 350px; /* Set a fixed width for the iframe */
+    height: 500px; /* Set a fixed height for the iframe */
+    background-color: white; /* Optional: Add a background color to the iframe container */
+    border-radius: 8px; /* Optional: Add some border radius for a smooth look */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Optional: Add a subtle shadow for depth */
+    margin-top: 20px; /* Space between the heading and chatbot */
+    margin-left: auto; /* Align the chatbot to the right */
+    margin-right: 10%; /* Adjust the position slightly to the left of the right side */
+}
+
+/* Contact section styles */
+.contact-section {
+    padding: 50px 20px;
+    background-color: #000; /* Set background color to black */
+    color: white; /* Set text color to white */
+    position: relative; /* Allow positioning of child elements */
+}
+
+.contact-section h2 {
+    font-family: 'Great Vibes', cursive; /* Unique handwriting style */
+    font-size: 2.5em;
+    text-align: center; /* Center header */
+    margin-bottom: 20px;
+}
+
+.contact-email {
+    text-align: center; /* Center the email text */
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.feedback-button {
+    position: absolute; /* Position feedback button */
+    right: 20px;
+    bottom: 20px;
+    padding: 10px 20px;
+    background-color: #007bff; /* Button background color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.feedback-button:hover {
+    background-color: #0056b3; /* Darker background on hover */
+}
+
+/* Feedback Form */
+.feedback-form {
+    display: none; /* Hide form initially */
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+    border-radius: 5px;
+}
+
+.feedback-form h3 {
+    margin-top: 0;
+}
+
+.feedback-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.feedback-form label {
+    font-size: 1em;
+}
+
+.feedback-form input, .feedback-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.feedback-form button {
+    background-color: #28a745; /* Button background color */
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.feedback-form button:hover {
+    background-color: #218838; /* Darker background on hover */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    .nav-container {
+        width: 100%;
+    }
+
+    .menu {
+        display: none; /* Hide menu by default on mobile */
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        background-color: black; /* Background color for mobile menu */
+    }
+
+    .menu.active {
+        display: flex; /* Show menu when active */
+    }
+
+    .menu-toggle {
+        display: flex; /* Show menu icon on mobile */
+    }
+
+    .home h1 {
+        font-size: 2.5em;
+    }
+
+    .home p {
+        font-size: 1.2em;
+    }
+
+    .about-section h2,
+    .chatbot-section h2,
+    .contact-section h2 {
+        font-size: 2em;
+    }
+
+    .about-section p,
+    .chatbot-section p,
+    .contact-section p {
+        font-size: 1em;
+    }
+
+    /* Adjust chatbot positioning for smaller screens */
+    .chatbot-section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    #dialogflow-chatbot {
+        width: 100%;
+        height: 400px;
+        margin-top: 20px;
+        margin-left: 0; /* Reset margin for mobile */
+        margin-right: 0; /* Reset margin for mobile */
+    }
+
+    /* Stack image and text vertically in the About section */
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-image {
+        margin: 0 auto 20px; /* Center image and add space below */
+    }
+
+    /* Center feedback button and form on mobile */
+    .feedback-button {
+        position: static; /* Reset position */
+        margin-top: 20px; /* Add margin to separate from form */
+    }
+
+    .feedback-form {
+        width: 100%;
+        margin: 20px 0;
+    }
+}
