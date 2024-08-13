@@ -1,11 +1,4 @@
-/* Reset or Base Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Global Styles */
+/* General styles */
 body, html {
     margin: 0;
     padding: 0;
@@ -14,10 +7,10 @@ body, html {
     scroll-behavior: smooth; /* Smooth scrolling */
 }
 
-/* Typography */
+/* Importing Google Font for handwriting style */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
 
-/* Navigation Bar Styles */
+/* Navigation bar styles */
 nav {
     background-color: black; /* Set background color to black */
     padding: 10px 20px;
@@ -54,7 +47,7 @@ nav {
     color: white;
 }
 
-/* Navigation Menu Styles */
+/* Navigation menu styles */
 .menu {
     display: flex;
     gap: 20px;
@@ -71,22 +64,22 @@ nav .menu a:hover {
     text-decoration: underline;
 }
 
-/* Hamburger Menu Styles for Mobile View */
-.hamburger {
+/* Hamburger menu styles for mobile view */
+.menu-toggle {
     display: none;
+    cursor: pointer;
     flex-direction: column;
     gap: 5px;
-    cursor: pointer;
 }
 
-.hamburger div {
+.menu-toggle .menu-line {
     width: 25px;
     height: 3px;
     background-color: white;
     border-radius: 2px;
 }
 
-/* Home Section Styles */
+/* Home section styles */
 .home {
     background-image: url('pic-1.jpeg'); /* Update with the actual path */
     background-size: cover;
@@ -120,7 +113,7 @@ nav .menu a:hover {
     margin-top: 20px;
 }
 
-/* About Section Styles */
+/* About section styles */
 .about-section {
     padding: 50px 20px;
     background-color: #000; /* Set background color to black */
@@ -160,7 +153,7 @@ nav .menu a:hover {
     margin-bottom: 20px;
 }
 
-/* Chatbot Section Styles */
+/* Chatbot section styles */
 .chatbot-section {
     background-image: url('pic-3.jpeg'); /* Update with the actual path */
     background-size: cover;
@@ -176,7 +169,7 @@ nav .menu a:hover {
     justify-content: flex-start; /* Align content at the top */
 }
 
-/* Chatbot Section Heading */
+/* Chatbot section heading */
 .chatbot-section h2 {
     font-family: 'Great Vibes', cursive; /* Unique handwriting style */
     font-size: 2.5em; /* Consistent heading size */
@@ -191,7 +184,7 @@ nav .menu a:hover {
     line-height: 1.6em;
 }
 
-/* Chatbot Iframe Styles */
+/* Chatbot iframe styles */
 #dialogflow-chatbot {
     width: 350px; /* Set a fixed width for the iframe */
     height: 500px; /* Set a fixed height for the iframe */
@@ -203,7 +196,7 @@ nav .menu a:hover {
     margin-right: 10%; /* Adjust the position slightly to the left of the right side */
 }
 
-/* Contact Section Styles */
+/* Contact section styles */
 .contact-section {
     padding: 50px 20px;
     text-align: center;
@@ -229,8 +222,7 @@ nav .menu a:hover {
 .feedback-button {
     position: absolute;
     right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 20px; /* Adjusted to the top right */
     padding: 10px 20px;
     background-color: #007bff; /* Button background color */
     color: white;
@@ -291,23 +283,10 @@ nav .menu a:hover {
     background-color: #218838; /* Darker background on hover */
 }
 
-/* Responsive Styles */
+/* Responsive styles */
 @media (max-width: 768px) {
-    .nav-container {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
     .menu {
         display: none; /* Hide menu initially for mobile */
-    }
-
-    .hamburger {
-        display: flex; /* Show hamburger menu icon on mobile */
-    }
-
-    .hamburger.active + .menu {
-        display: flex; /* Show menu when hamburger is active */
         flex-direction: column;
         gap: 10px;
         position: absolute;
@@ -319,62 +298,63 @@ nav .menu a:hover {
         width: 200px;
     }
 
-    .hamburger.active + .menu a {
-        color: white;
-        text-decoration: none;
-       }
+    .menu.show {
+        display: flex; /* Show menu when toggle is active */
+    }
+
+    .menu-toggle {
+        display: flex; /* Show hamburger menu icon on mobile */
+    }
 
     .home {
         padding: 20px;
-        justify-content: center; /* Center the text horizontally */
-        text-align: center; /* Center the text */
+        justify-content: center; 
+                    text-align: center; /* Center the text */
+        }
+    
+        .home .home-text {
+            margin-right: 0;
+            text-align: center;
+        }
+    
+        .home h1 {
+            font-size: 2.5em; /* Smaller heading on mobile */
+        }
+    
+        .home p {
+            font-size: 1.2em; /* Smaller paragraph text on mobile */
+        }
+    
+        .about-content {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+    
+        .about-text {
+            text-align: center;
+        }
+    
+        .chatbot-section {
+            padding: 30px 20px;
+        }
+    
+        #dialogflow-chatbot {
+            margin: 0 auto; /* Center the chatbot in mobile view */
+            margin-top: 20px;
+        }
+    
+        .feedback-button {
+            right: 10px; /* Adjust the position slightly */
+        }
+    
+        .feedback-form {
+            width: 90%; /* Adjust width for smaller screens */
+        }
+    
+        .contact-section p {
+            font-size: 1em;
+            line-height: 1.4em;
+        }
     }
-
-    .home .home-text {
-        margin-right: 0;
-        text-align: center;
-    }
-
-    .home h1 {
-        font-size: 2.5em; /* Smaller heading on mobile */
-    }
-
-    .home p {
-        font-size: 1.2em; /* Smaller paragraph text on mobile */
-    }
-
-    .about-content {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    .about-text {
-        text-align: center;
-    }
-
-    .chatbot-section {
-        padding: 30px 20px;
-    }
-
-    #dialogflow-chatbot {
-        margin: 0 auto; /* Center the chatbot in mobile view */
-        margin-top: 20px;
-    }
-
-    .feedback-button {
-        right: 10px; /* Adjust the position slightly */
-    }
-
-    .feedback-form {
-        width: 90%; /* Adjust width for smaller screens */
-    }
-
-    .contact-section p {
-        font-size: 1em;
-        line-height: 1.4em;
-    }
-}
-
-/* Additional styles can be added here */
-
+/* Center the text horizontally */
