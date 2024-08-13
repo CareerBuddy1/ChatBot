@@ -19,7 +19,7 @@ nav {
     width: 100%;
     z-index: 1000;
     display: flex;
-    justify-content: center;
+    justify-content: space-between; /* Align logo and menu to opposite sides */
     align-items: center;
 }
 
@@ -31,7 +31,6 @@ nav {
     align-items: center;
 }
 
-/* Logo and site name */
 .logo-container {
     display: flex;
     align-items: center;
@@ -43,12 +42,12 @@ nav {
 }
 
 .site-name {
-    font-family: 'Poppins', sans-serif; /* Handwriting style */
+    font-family: 'Great Vibes', cursive; /* Unique handwriting style */
     font-size: 2em;
     color: white;
 }
 
-/* Menu */
+/* Navigation menu styles */
 .menu {
     display: flex;
     gap: 20px;
@@ -65,18 +64,19 @@ nav .menu a:hover {
     text-decoration: underline;
 }
 
-/* Menu toggle button (hamburger icon) */
-.menu-toggle {
+/* Hamburger menu styles for mobile view */
+.hamburger {
     display: none;
     flex-direction: column;
     gap: 5px;
     cursor: pointer;
 }
 
-.menu-line {
-    width: 30px;
+.hamburger div {
+    width: 25px;
     height: 3px;
     background-color: white;
+    border-radius: 2px;
 }
 
 /* Home section styles */
@@ -103,7 +103,7 @@ nav .menu a:hover {
 }
 
 .home h1 {
-    font-family: 'Poppins', sans-serif; /* Handwriting style */
+    font-family: 'Great Vibes', cursive; /* Unique handwriting style */
     font-size: 3.5em;
     margin: 0;
 }
@@ -141,7 +141,7 @@ nav .menu a:hover {
 }
 
 .about-section h2 {
-    font-family: 'Poppins', sans-serif; /* Handwriting style */
+    font-family: 'Great Vibes', cursive; /* Unique handwriting style */
     font-size: 2.5em;
     margin-bottom: 20px;
     text-align: center;
@@ -171,7 +171,7 @@ nav .menu a:hover {
 
 /* Chatbot section heading */
 .chatbot-section h2 {
-    font-family: 'Poppins', sans-serif; /* Handwriting style */
+    font-family: 'Great Vibes', cursive; /* Unique handwriting style */
     font-size: 2.5em; /* Consistent heading size */
     margin-bottom: 20px;
     margin-top: 0;
@@ -199,21 +199,23 @@ nav .menu a:hover {
 /* Contact section styles */
 .contact-section {
     padding: 50px 20px;
-    text-align: center; /* Center-align header and paragraph */
+    text-align: center;
     background-color: #000; /* Set background color to black */
     color: white; /* Set text color to white */
-    position: relative; /* Position relative for the feedback button */
+    position: relative; /* Make the section relative for positioning the feedback button */
 }
 
 .contact-section h2 {
-    font-family: 'Poppins', sans-serif; /* Handwriting style */
+    font-family: 'Great Vibes', cursive; /* Unique handwriting style */
     font-size: 2.5em;
     margin-bottom: 20px;
 }
 
 .contact-section p {
     font-size: 1.2em;
-    margin-bottom: 20px; /* Add space below the paragraph */
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6em;
 }
 
 /* Feedback Button */
@@ -222,13 +224,13 @@ nav .menu a:hover {
     right: 20px;
     top: 50%;
     transform: translateY(-50%);
+    padding: 10px 20px;
     background-color: #007bff; /* Button background color */
     color: white;
     border: none;
-    padding: 10px 20px;
-    cursor: pointer;
     border-radius: 5px;
     font-size: 1em;
+    cursor: pointer;
 }
 
 .feedback-button:hover {
@@ -238,13 +240,12 @@ nav .menu a:hover {
 /* Feedback Form */
 .feedback-form {
     display: none; /* Hide form initially */
-    max-width: 500px;
+    max-width: 600px;
     margin: 20px auto;
     padding: 20px;
     background-color: #333;
     color: white;
     border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .feedback-form h3 {
@@ -283,97 +284,97 @@ nav .menu a:hover {
     background-color: #218838; /* Darker background on hover */
 }
 
-/* Mobile styles */
+/* Responsive styles */
 @media (max-width: 768px) {
-    /* Navigation bar styles for mobile */
     .nav-container {
         flex-direction: column;
         align-items: flex-start;
     }
 
     .menu {
-        display: none;
+        display: none; /* Hide menu initially for mobile */
+    }
+
+    .hamburger {
+        display: flex; /* Show hamburger menu icon on mobile */
+    }
+
+    .hamburger.active + .menu {
+        display: flex; /* Show menu when hamburger is active */
         flex-direction: column;
-        width: 100%;
-        background-color: black;
+        gap: 10px;
         position: absolute;
-        top: 60px; /* Position below the nav bar */
-        left: 0;
-        z-index: 1000;
-    }
-
-    .menu.show {
-        display: flex;
-    }
-
-    .menu a {
+        top: 60px; /* Adjust top position as needed */
+        right: 20px;
+        background-color: black;
         padding: 10px;
-        border-bottom: 1px solid #333;
+        border-radius: 5px;
+        width: 200px;
+    }
+
+    .hamburger.active + .menu a {
         color: white;
-        text-align: center;
+        text-decoration: none;
     }
 
-    .menu-toggle {
-        display: flex;
+    /* Adjust chatbot positioning for smaller screens */
+    .chatbot-section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center
+    }
+    
+    /* Adjust chatbot iframe size for smaller screens */
+    #dialogflow-chatbot {
+        width: 90%;
+        height: 400px; /* Adjust height for better fit on smaller screens */
+        margin-right: 0;
     }
 
-    .menu-line {
-        width: 30px;
-        height: 3px;
-        background-color: white;
-        margin: 4px 0;
-    }
-    .logo-container {
-        margin-right: 0; /* Ensure the logo container takes up the full width on mobile */
-    }
-
-    .site-name {
-        font-size: 1.5em; /* Adjust font size for mobile */
-    }
-}
-
-/* For very small devices (phones in portrait mode) */
-@media (max-width: 480px) {
-    .home-text h1 {
-        font-size: 2.5em; /* Adjust heading size */
-    }
-
-    .home-text p {
-        font-size: 1.2em; /* Adjust paragraph size */
-    }
-
-    .about-section h2 {
-        font-size: 2em; /* Adjust heading size */
-    }
-
-    .about-section p {
-        font-size: 1em; /* Adjust paragraph size */
-    }
-
-    .chatbot-section h2 {
-        font-size: 2em; /* Adjust heading size */
-    }
-
-    .chatbot-section p {
-        font-size: 1em; /* Adjust paragraph size */
-    }
-
-    .contact-section h2 {
-        font-size: 2em; /* Adjust heading size */
-    }
-
-    .contact-section p {
-        font-size: 1em; /* Adjust paragraph size */
+    /* Contact section styles for mobile */
+    .contact-section {
+        padding: 20px;
     }
 
     .feedback-button {
-        right: 10px; /* Adjust button position */
-    }
-
-    #dialogflow-chatbot {
-        width: 100%; /* Make chatbot full width on very small screens */
-        height: 400px; /* Adjust height for small screens */
+        position: relative;
+        top: auto;
+        right: auto;
+        margin: 20px 0; /* Adjust margin to fit mobile view */
     }
 }
 
-   
+/* Additional mobile responsiveness */
+@media (max-width: 480px) {
+    .home h1 {
+        font-size: 2.5em; /* Adjust font size for smaller screens */
+    }
+
+    .home p {
+        font-size: 1.2em; /* Adjust font size for smaller screens */
+    }
+
+    .about-section h2 {
+        font-size: 2em; /* Adjust font size for smaller screens */
+    }
+
+    .about-section p {
+        font-size: 1em; /* Adjust font size for smaller screens */
+    }
+
+    .chatbot-section h2 {
+        font-size: 2em; /* Adjust font size for smaller screens */
+    }
+
+    .chatbot-section p {
+        font-size: 1.1em; /* Adjust font size for smaller screens */
+    }
+
+    .contact-section h2 {
+        font-size: 2em; /* Adjust font size for smaller screens */
+    }
+
+    .contact-section p {
+        font-size: 1em; /* Adjust font size for smaller screens */
+    }
+}
