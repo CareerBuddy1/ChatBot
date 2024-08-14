@@ -6,9 +6,7 @@
     <title>Career Buddy Chatbot</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
-        /* Basic styles for demonstration */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -18,6 +16,7 @@
             background: #333;
             color: #fff;
             padding: 10px;
+            position: relative;
         }
         .logo-container {
             display: flex;
@@ -39,9 +38,21 @@
             color: #fff;
             text-decoration: none;
         }
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+        }
+        .menu-line {
+            width: 30px;
+            height: 3px;
+            background-color: #fff;
+            margin: 5px 0;
+        }
         .home {
             text-align: center;
-            padding: 50px 0;
+            padding: 50px 20px;
+            background: #000; /* Black background for the top section */
+            color: #fff;
         }
         .home-text h1 {
             font-size: 2.5em;
@@ -72,6 +83,24 @@
         }
         .feedback-button:hover {
             background-color: #0056b3;
+        }
+        @media (max-width: 768px) {
+            .menu {
+                display: none;
+                flex-direction: column;
+                background: #333;
+                position: absolute;
+                top: 50px;
+                right: 0;
+                width: 100%;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            }
+            .menu.show {
+                display: flex;
+            }
+            .menu-toggle {
+                display: block;
+            }
         }
     </style>
 </head>
@@ -161,34 +190,33 @@
     </section>
 
     <script>
-        $(document).ready(function() {
+        document.addEventListener('DOMContentLoaded', function() {
+            var menuToggle = document.getElementById('menu-toggle');
+            var navMenu = document.getElementById('nav-menu');
+            var feedbackButton = document.getElementById('feedback-button');
+            var feedbackForm = document.getElementById('feedback-form');
+
             // Toggle navigation menu
-            $('#menu-toggle').on('click', function() {
-                $('#nav-menu').toggleClass('show');
+            menuToggle.addEventListener('click', function() {
+                navMenu.classList.toggle('show');
+            });
+
+            // Close menu on scroll or click outside
+            document.addEventListener('scroll', function() {
+                if (window.innerWidth <= 768) {
+                    navMenu.classList.remove('show');
+                }
+            });
+
+            document.addEventListener('click', function(event) {
+                if (!navMenu.contains(event.target) && !menuToggle.contains(event.target) && window.innerWidth <= 768) {
+                    navMenu.classList.remove('show');
+                }
             });
 
             // Toggle feedback form visibility
-            $('#feedback-button').on('click', function() {
-                $('#feedback-form').toggle();
-            });
-
-            // Handle form submission via AJAX
-            $('#feedbackForm').on('submit', function(event) {
-                event.preventDefault(); // Prevent default form submission
-
-                $.ajax({
-                    type: 'POST',
-                    url: $(this).attr('action'),
-                    data: $(this).serialize(),
-                    success: function() {
-                        alert('Feedback submitted successfully!');
-                        $('#feedbackForm')[0].reset();
-                        $('#feedback-form').hide();
-                    },
-                    error: function(xhr, status, error) {
-                        alert('An error occurred: ' + xhr.status + ' ' + error);
-                    }
-                });
+            feedbackButton.addEventListener('click', function() {
+                feedbackForm.style.display = feedbackForm.style.display === 'none' ? 'block' : 'none';
             });
         });
     </script>
