@@ -6,7 +6,9 @@
     <title>Career Buddy Chatbot</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
+        /* Add your CSS here or link to an external stylesheet */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -37,8 +39,29 @@
             color: #fff;
             text-decoration: none;
         }
-        .home, .about-section, .chatbot-section, .contact-section {
+        .home {
+            text-align: center;
+            padding: 50px 0;
+        }
+        .home-text h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+        .about-section, .chatbot-section, .contact-section {
             padding: 50px 20px;
+        }
+        .about-content {
+            display: flex;
+            gap: 20px;
+        }
+        .about-text {
+            max-width: 600px;
+        }
+        #dialogflow-chatbot iframe {
+            border: none;
+        }
+        .feedback-form {
+            margin-top: 20px;
         }
         .feedback-button {
             background-color: #007bff;
@@ -53,6 +76,7 @@
     </style>
 </head>
 <body>
+    <!-- Navigation bar -->
     <nav>
         <div class="nav-container">
             <div class="logo-container">
@@ -73,6 +97,7 @@
         </div>
     </nav>
 
+    <!-- Home section -->
     <section id="home" class="home">
         <div class="home-text">
             <h1>Welcome to Career Buddy</h1>
@@ -80,6 +105,7 @@
         </div>
     </section>
 
+    <!-- About section -->
     <section id="about" class="about-section">
         <h2>About Career Buddy</h2>
         <div class="about-content">
@@ -91,10 +117,12 @@
         </div>
     </section>
 
+    <!-- Chatbot section -->
     <section id="chatbot" class="chatbot-section">
         <h2>Chat with Career Buddy</h2>
         <p>Get insights and guidance for your tech career.</p>
         <p>Start with hello</p>
+        <!-- Dialogflow integration -->
         <div id="dialogflow-chatbot">
             <iframe
                 allow="microphone;"
@@ -105,13 +133,16 @@
         </div>
     </section>
 
+    <!-- Contact section -->
     <section id="contact" class="contact-section">
         <h2>Contact Us</h2>
         <p>We'd love to hear from you! Reach out with any questions, feedback, or suggestions.</p>
         <p>Email: careerbuddy809@gmail.com</p>
         
+        <!-- Feedback Button -->
         <button id="feedback-button" class="feedback-button">Give Feedback</button>
         
+        <!-- Feedback Form -->
         <div id="feedback-form" class="feedback-form" style="display: none;">
             <h3>We Value Your Feedback</h3>
             <form id="feedbackForm" action="https://formsubmit.co/careerbuddy809@gmail.com" method="POST">
@@ -131,14 +162,17 @@
 
     <script>
         $(document).ready(function() {
+            // Toggle navigation menu
             $('#menu-toggle').on('click', function() {
                 $('#nav-menu').toggleClass('show');
             });
 
+            // Toggle feedback form visibility
             $('#feedback-button').on('click', function() {
                 $('#feedback-form').toggle();
             });
 
+            // Handle form submission via AJAX
             $('#feedbackForm').on('submit', function(event) {
                 event.preventDefault(); // Prevent default form submission
 
