@@ -6,7 +6,6 @@
     <title>Career Buddy Chatbot</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
-
 </head>
 <body>
     <!-- Navigation bar -->
@@ -21,7 +20,7 @@
                 <div class="menu-line"></div>
                 <div class="menu-line"></div>
             </div>
-            <div class="menu">
+            <div class="menu" id="nav-menu">
                 <a href="#home">Home</a>
                 <a href="#about">About</a>
                 <a href="#chatbot">Chatbot</a>
@@ -45,7 +44,7 @@
             <img src="logo.png" alt="About Career Buddy" class="about-image">
             <div class="about-text">
                 <p>Career Buddy is a chatbot created by Neeli Tejaswani, Shaik Shajineen, and Shaik Sofiya Asmi, third-year BTech students from SSITS College. It helps you understand different software jobs like Front-End Developer, Back-End Developer, Cybersecurity Analyst, Cloud Engineer, UI/UX Designer, etc.</p>
-                <p>It shows salary ranges, job demand, and how to start in these fields. Career Buddy also offers little information on resumes, portfolios, courses, and LinkedIn. “Your guide to a successful career in the software field!”</p>
+                <p>It shows salary ranges, job demand, and how to start in these fields. Career Buddy also offers information on resumes, portfolios, courses, and LinkedIn. “Your guide to a successful career in the software field!”</p>
             </div>
         </div>
     </section>
@@ -75,7 +74,7 @@
         <!-- Feedback Button -->
         <button id="feedback-button" class="feedback-button">Give Feedback</button>
         <!-- Feedback Form -->
-        <div id="feedback-form" class="feedback-form">
+        <div id="feedback-form" class="feedback-form" style="display: none;">
             <h3>We Value Your Feedback</h3>
             <form id="feedbackForm" action="https://formsubmit.co/careerbuddy809@gmail.com" method="POST">
                 <label for="feedbackName">Name:</label>
@@ -91,22 +90,38 @@
             </form>
         </div>
     </section>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-         document.getElementById('menu-toggle').addEventListener('click', function() {
+        // Toggle navigation menu
+        document.getElementById('menu-toggle').addEventListener('click', function() {
             document.getElementById('nav-menu').classList.toggle('show');
         });
 
         // Toggle feedback form visibility
         document.getElementById('feedback-button').addEventListener('click', function() {
             var feedbackForm = document.getElementById('feedback-form');
-            if (feedbackForm.style.display === "none" || feedbackForm.style.display === "") {
-                feedbackForm.style.display = "block";
-            } else {
-                feedbackForm.style.display = "none";
-            }
+            feedbackForm.style.display = feedbackForm.style.display === "none" ? "block" : "none";
         });
-       
-          
+
+        // AJAX form submission
+        document.getElementById('feedbackForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            $.ajax({
+                type: 'POST',
+                url: $(this).attr('action'),
+                data: $(this).serialize(),
+                success: function() {
+                    alert('Feedback submitted successfully!');
+                    $('#feedbackForm')[0].reset();
+                    $('#feedback-form').hide();
+                },
+                error: function() {
+                    alert('An error occurred. Please try again.');
+                }
+            });
+        });
     </script>
 </body>
 </html>
