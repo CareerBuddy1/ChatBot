@@ -8,9 +8,7 @@ body, html {
 }
 
 /* Importing Google Font for handwriting style */
-
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
-
 
 /* Navigation bar styles */
 nav {
@@ -45,7 +43,6 @@ nav {
 
 .site-name {
     font-family: 'Lobster', cursive;
-/* Unique handwriting style */
     font-size: 2em;
     color: white;
 }
@@ -107,7 +104,6 @@ nav .menu a:hover {
 
 .home h1 {
     font-family: 'Lobster', cursive;
-/* Unique handwriting style */
     font-size: 3.5em;
     margin: 0;
 }
@@ -146,7 +142,6 @@ nav .menu a:hover {
 
 .about-section h2 {
     font-family: 'Lobster', cursive;
- /* Unique handwriting style */
     font-size: 2.5em;
     margin-bottom: 20px;
     text-align: center;
@@ -155,6 +150,7 @@ nav .menu a:hover {
 .about-section p {
     font-size: 1.2em;
     line-height: 1.6em;
+        1.6em;
     margin-bottom: 20px;
 }
 
@@ -177,7 +173,6 @@ nav .menu a:hover {
 /* Chatbot section heading */
 .chatbot-section h2 {
     font-family: 'Lobster', cursive;
-/* Unique handwriting style */
     font-size: 2.5em; /* Consistent heading size */
     margin-bottom: 20px;
     margin-top: 0;
@@ -213,7 +208,6 @@ nav .menu a:hover {
 
 .contact-section h2 {
     font-family: 'Lobster', cursive;
-/* Unique handwriting style */
     font-size: 2.5em;
     margin-bottom: 20px;
 }
@@ -252,6 +246,10 @@ nav .menu a:hover {
     background-color: #333;
     color: white;
     border-radius: 5px;
+}
+
+.feedback-form.show {
+    display: block; /* Show form when toggle is active */
 }
 
 .feedback-form h3 {
@@ -315,53 +313,52 @@ nav .menu a:hover {
 
     .home {
         padding: 20px;
-        justify-content: center; 
-                    text-align: center; /* Center the text */
-        }
-    
-        .home .home-text {
-            margin-right: 0;
-            text-align: center;
-        }
-    
-        .home h1 {
-            font-size: 2.5em; /* Smaller heading on mobile */
-        }
-    
-        .home p {
-            font-size: 1.2em; /* Smaller paragraph text on mobile */
-        }
-    
-        .about-content {
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-    
-        .about-text {
-            text-align: center;
-        }
-    
-        .chatbot-section {
-            padding: 30px 20px;
-        }
-    
-        #dialogflow-chatbot {
-            margin: 0 auto; /* Center the chatbot in mobile view */
-            margin-top: 20px;
-        }
-    
-        .feedback-button {
-            right: 10px; /* Adjust the position slightly */
-        }
-    
-        .feedback-form {
-            width: 90%; /* Adjust width for smaller screens */
-        }
-    
-        .contact-section p {
-            font-size: 1em;
-            line-height: 1.4em;
-        }
+        justify-content: center;
+        text-align: center; /* Center the text */
     }
-/* Center the text horizontally */
+
+    .home .home-text {
+        margin-right: 0;
+        text-align: center;
+    }
+
+    .home h1 {
+        font-size: 2.5em; /* Smaller heading on mobile */
+    }
+
+    .home p {
+        font-size: 1.2em; /* Smaller paragraph text on mobile */
+    }
+
+    .about-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .about-text {
+        text-align: center;
+    }
+
+    .chatbot-section {
+        padding: 30px 20px;
+    }
+
+    #dialogflow-chatbot {
+        margin: 0 auto; /* Center the chatbot in mobile view */
+        margin-top: 20px;
+    }
+
+    .feedback-button {
+        right: 10px; /* Adjust the position slightly */
+    }
+
+    .feedback-form {
+        width: 90%; /* Adjust width for smaller screens */
+    }
+
+    .contact-section p {
+        font-size: 1em;
+        line-height: 1.4em;
+  }
+}
